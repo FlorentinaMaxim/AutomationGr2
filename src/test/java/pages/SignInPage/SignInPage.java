@@ -11,24 +11,40 @@ public class SignInPage extends BasePage {
 
     private SignInPage() {
     }
-        public static SignInPage getInstance(){
-            SignInPage instance = null;
-            if (instance == null){
-                instance = new SignInPage();
 
-            }
-            return instance;
+    public static SignInPage getInstance() {
+        SignInPage instance = null;
+        if (instance == null) {
+            instance = new SignInPage();
+
         }
-        private By signInButton = By.id("btn1");
-    public void clickSignInButton () {
+        return instance;
+    }
+
+    private By SignInButton = By.id("btn1");
+    private By logo = By.id("logo");
+private By emailField = By.xpath("//input[@ng-model='Email']");
+private By passwirdField = By.xpath("//input[@ng-model='Password']");
+
+    public void clickSignInButton() {
         LOG.info("Click 'Sign in' button");
-        driver.findElement(signInButton).click();
+        driver.findElement(SignInButton).click();
     }
-        public boolean isSignInButtonDisplayed(){
-            LOG.info("Verify if 'Sign in button is displayed");
-            return driver.findElement(signInButton).isDisplayed();
-        }
+
+    public boolean isSignInButtonDisplayed() {
+        LOG.info("Verify if 'Sign in button is displayed");
+        return driver.findElement(SignInButton).isDisplayed();
+    }
+
+    public boolean isLogoDisplayed() {
+        LOG.info("Verify if Logo image button is displayed");
+        return driver.findElement(logo).isDisplayed();
+
 
     }
+
+    }
+
+
 
 

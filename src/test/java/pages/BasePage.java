@@ -10,9 +10,9 @@ public class BasePage {
     private static final Logger LOG = LoggerFactory.getLogger(BasePage.class);
     public static WebDriver driver;
 
-    public static void setUp(){
+    public static void setUp() {
         LOG.info("Start test");
-        System.setProperty("webdriver.chrome.driver" , "C://WebDrivers/chromedriver121");
+        System.setProperty("webdriver.chrome.driver", "C://WebDrivers//chromedriver121.exe");
         driver = new ChromeDriver();
         String url = "https://demo.automationtesting.in/Index.html";
         driver.get(url);
@@ -20,19 +20,19 @@ public class BasePage {
         driver.manage().window().maximize();
     }
 
-    public static void tearDown(){
-        LOG.info ("Close the browser");
+    public static void tearDown() {
+        LOG.info("Close the browser");
         driver.quit();
     }
 
-    public static String returnBaseUrl(){
+    public static String returnBaseUrl() {
         return "https://demo.automationtesting.in/Index.html";
     }
 
-    public static String getBaseUrl(){
+    public static String getBaseUrl() {
         String BaseUrl = returnBaseUrl();
-        if (BaseUrl != null){
-            return BaseUrl.replace("Index.html"," ");
+        if (BaseUrl != null) {
+            return BaseUrl.replace("Index.html", " ");
         }
         return BaseUrl;
 
