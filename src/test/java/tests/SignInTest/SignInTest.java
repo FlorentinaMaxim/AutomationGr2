@@ -8,9 +8,13 @@ import tests.BaseTest;
 
 public class SignInTest extends BaseTest {
     public static final Logger LOG = LoggerFactory.getLogger(SignInTest.class);
+    private String Email;
 
     @Test
     public void signIn() {
+
+        String email = "jjj";
+        String password = "aaa";
 
         LOG.info("Check 'Sign in' button");
         Assert.assertTrue(signInPage.isSignInButtonDisplayed(), "Button is not displayed");
@@ -22,9 +26,23 @@ public class SignInTest extends BaseTest {
         LOG.info("Verify if logo is displayed");
         Assert.assertTrue(signInPage.isLogoDisplayed());
 
+
+        LOG.info("Insert 'Email'");
+        signInPage.insertemail(email);
+
+        LOG.info("Insert 'password'");
+        signInPage.insertPassword(password);
+
+        LOG.info("Click 'Enter' button");
+        signInPage.clickenterButton();
+
+        LOG.info("Verify if errormsg is displayed");
+        Assert.assertTrue(signInPage.iserrorMessageDisplayed());
+        LOG.info("Navigate back");
+        signInPage.clickBack();
+
+        LOG.info("Click 'Skip sign in' button");
+        signInPage.clickSkipSignInButton();
+
     }
-
-
 }
-
-
